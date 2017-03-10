@@ -1,0 +1,29 @@
+<div class="page-header">
+	<h1>
+		Metadata
+	</h1>
+</div>
+
+<div class="jumbotron text-center" ng-show="torrent.processing">
+	<span class="glyphicon glyphicon-repeat spinner"></span>
+	<p>Loading Users...</p>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+		{{torrent.torrentData.data.title}}
+	</div>
+  <div class="panel-body">
+		InfoHash: {{torrent.torrentData.data._id }}<br>
+		Size		:	{{torrent.torrentData.data.size / 1000000}} MB<br>
+		Files		: <br>
+		<div ng-repeat="warez in torrent.torrentData.data.files">
+			{{warez}}<br>
+		</div>
+  </div>
+</div>
+
+
+<a href="magnet:?xt=urn:btih:{{torrent.torrentData.data._id}}&dn={{torrent.torrentData.data.title}}" class="btn btn-xs btn-primary" alt="download torrent" title="download torrent">
+		Download
+</a>
