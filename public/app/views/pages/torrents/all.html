@@ -29,7 +29,7 @@
 			<td>{{ warez.title }}</td>
 			<td>{{ warez.size }} MB</td>
 			<td>{{ warez.swarm.seeders }} / {{ warez.swarm.seeders }}</td>
-			<td>{{ warez.imported | filter:'medium'}}</td>
+			<td>{{ warez.imported | date:'medium'}}</td>
 			<td><a href="/torrent/{{warez._id}}" class="btn btn-primary">Download</a></td>
 		</tr>
 	</tbody>

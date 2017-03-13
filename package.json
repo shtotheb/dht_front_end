@@ -9,6 +9,7 @@
     "jsonwebtoken": "^6.2.0",
     "magnet-uri": "^5.1.5",
     "mongoose": "~4.4.17",
-    "morgan": "~1.7.0"
+    "morgan": "~1.7.0",
+    "prettysize": "0.0.3"
   }
 }
