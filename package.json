@@ -2,6 +2,7 @@
   "name": "linkedin-ngapi",
   "main": "api.js",
   "dependencies": {
+    "angular-filter": "^0.5.15",
     "angular-utils-pagination": "^0.11.1",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "~1.15.1",

@@ -5,7 +5,6 @@ var morgan     = require('morgan');
 var mongoose   = require('mongoose');
 var config 	   = require('./config');
 var path 	   = require('path');
-var pretty = require('prettysize');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
