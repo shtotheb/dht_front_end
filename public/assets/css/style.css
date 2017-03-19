@@ -9,6 +9,16 @@ header .navbar 		{
 	border-radius:0;
 }
 
+.navbar-brand {
+  padding: 0px;
+}
+
+.navbar-brand>img {
+  height: 100%;
+  padding: 8px;
+  width: auto;
+}
+
 .col-xs-6 {
   float: none;
   margin-left: auto;
