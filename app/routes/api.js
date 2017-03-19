@@ -2,6 +2,7 @@ var bodyParser = require('body-parser');
 var Torrent       = require('../models/Torrent');
 var jwt        = require('jsonwebtoken');
 var config     = require('../../config');
+var bytes = require('bytes');
 
 module.exports = function(app, express) {
 
@@ -17,8 +18,6 @@ module.exports = function(app, express) {
 		.get(function(req, res) {
 			Torrent.find({}, function(err, torrents) {
 				if (err) res.send(err);
-				console.log("Called /torrents")
-
 				res.json(torrents);
 			}).limit(500);
 		});
@@ -28,7 +27,6 @@ module.exports = function(app, express) {
 		.get(function(req, res) {
 			Torrent.findById(req.params.torrent_id, function(err, torrent) {
 				if (err) res.send(err);
-
 				res.json(torrent);
 			});
 		})

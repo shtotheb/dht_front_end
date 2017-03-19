@@ -5,25 +5,23 @@ angular.module('torrentCtrl', ['torrentService'])
 })
 
 .controller('torrentController', function(Torrent) {
-
 	var vm = this;
 	vm.processing = true;
 	Torrent.all()
 		.then(function(data) {
 			vm.processing = false;
 			vm.torrents = data;
-
 		});
 })
 
-
 .controller('torrentShowController', function($routeParams, Torrent) {
 	var vm = this;
+	vm.processing = true;
 	Torrent.get($routeParams.torrent_id)
 		.then(function(data) {
+			vm.processing = false;
 			vm.torrentData = data;
 		});
-
 })
 
 .controller('torrentSearchController', function($routeParams, Torrent) {
