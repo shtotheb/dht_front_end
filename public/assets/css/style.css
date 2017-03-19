@@ -17,6 +17,7 @@ header .navbar 		{
   height: 100%;
   padding: 8px;
   width: auto;
+	margin-left: 20px;
 }
 
 .col-xs-6 {
