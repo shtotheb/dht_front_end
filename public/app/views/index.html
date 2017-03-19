@@ -33,23 +33,6 @@
 <body ng-app="torrentApp">
 
 <!-- NAVBAR -->
-<header ng-controller="searchCtrl as search">
-
-	<nav class="navbar navbar-default">
-	  <div class="container-fluid">
-	    <div class="navbar-header">
-	      <a class="navbar-brand" href="/">Siamang</a>
-	    </div>
-	  	<form class="navbar-form navbar-left" role="search">
-	    	<div class="form-group">
-	    		<input type="text" class="form-control" placeholder="Search" ng-model="search.torrentname">
-	    	</div>
-	    	<a href='/torrentsearch/{{search.torrentname}}' type="button" class="btn btn-default">Go</a>
-	  	</form>
-	  </div>
-	</nav>
-
-</header>
 
 <main class="container">
 	<!-- ANGULAR VIEWS -->

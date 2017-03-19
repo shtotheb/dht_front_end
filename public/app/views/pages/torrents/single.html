@@ -1,3 +1,19 @@
+<header ng-controller="searchCtrl as search">
+	<nav class="navbar navbar-default navbar-fixed-top">
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+	      <a class="navbar-brand" ng-href="/">Siamang</a>
+	    </div>
+	  	<form class="navbar-form navbar-left" role="search">
+	    	<div class="form-group">
+	    		<input type="text" class="form-control" placeholder="Search" ng-model="search.torrentname">
+	    	</div>
+	    	<a href='/torrentsearch/{{search.torrentname}}' type="button" class="btn btn-default">Go</a>
+	  	</form>
+	  </div>
+	</nav>
+</header>
+
 <div class="loading" ng-show="torrent.processing">
 	<span aria-busy="true" aria-label="Loading" role="progressbar" class="craddle">
 	  <div class="swing">
@@ -37,7 +53,9 @@
 			Size		:	{{torrent.torrentData.data.size | Filesize }}<br>
 			Files		: <br>
 			<div ng-repeat="warez in torrent.torrentData.data.files">
-				{{warez}}<br>
+				<ul style="list-style-type:disc">
+					<li>{{warez}}</li>
+				</ul>
 			</div>
 	  </div>
 	</div>

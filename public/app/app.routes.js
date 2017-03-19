@@ -4,14 +4,16 @@ angular.module('app.routes', ['ngRoute'])
 
 	$routeProvider
 
-		// show all users
+		.when('/', {
+			templateUrl: 'app/views/pages/home.html'
+		})
+
 		.when('/torrents', {
 			templateUrl: 'app/views/pages/torrents/all.html',
 			controller: 'torrentController',
 			controllerAs: 'torrent'
 		})
 
-		// page to edit a user
 		.when('/torrent/:torrent_id', {
 			templateUrl: 'app/views/pages/torrents/single.html',
 			controller: 'torrentShowController',
