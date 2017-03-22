@@ -49,18 +49,25 @@
 			{{torrent.torrentData.data.title}}
 		</div>
 	  <div class="panel-body">
-			InfoHash: {{torrent.torrentData.data._id }}<br>
-			Size		:	{{torrent.torrentData.data.size | Filesize }}<br>
-			Files		: <br>
-			<div ng-repeat="warez in torrent.torrentData.data.files">
-				<ul style="list-style-type:disc">
-					<li>{{warez}}</li>
-				</ul>
+			<div class="row">
+				<div class="col-sm-2">
+					<strong>InfoHash </strong><br>
+					<strong>Size	</strong><br>
+					<strong>Files </strong>
+				</div>
+				<div class="col-sm-10">
+					 {{torrent.torrentData.data._id }}<br>
+					 {{torrent.torrentData.data.size | Filesize }}<br>
+						<div ng-repeat="warez in torrent.torrentData.data.files">
+						<ul style="list-style-type:disc">
+							<li>{{warez}}</li>
+						</ul>
+					</div>
+				</div>
 			</div>
-	  </div>
+		</div>
 	</div>
 
 	<a href="magnet:?xt=urn:btih:{{torrent.torrentData.data._id}}&dn={{torrent.torrentData.data.title}}" class="btn btn-primary" alt="download torrent" title="download torrent">
 			Download
 	</a>
-</div>

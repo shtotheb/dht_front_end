@@ -43,6 +43,7 @@
 	</div>
 
 	<ul class="nav nav-tabs">
+		<li><a href="#home" data-toggle="tab">All</a></li>
 		<li><a href="#home" data-toggle="tab">Video</a></li>
 		<li><a href="#home" data-toggle="tab">Audio</a></li>
 		<li><a href="#home" data-toggle="tab">Ebook</a></li>
@@ -72,8 +73,6 @@
 </div>
 
 <div ng-show="torrent.torrents.data == 0">
-<br>
-<h1 align="center">We've got nothing on "{{torrent.query}}"<h1>
-<h1 align="center">have a banana instead, or use another keyword</h1>
-<img class="pisang" src="assets/images/siamang_not_found.png">
+	<h1 class="not-found-text" align="center">We've got nothing on "{{torrent.query}}" :(<h1>
+	<img class="not-found-pisang" src="assets/images/siamang_not_found.png">
 </div>
