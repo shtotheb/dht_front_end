@@ -2,7 +2,7 @@
 	<nav class="navbar navbar-default navbar-fixed-top">
 		<div class="container-fluid">
 	    <div class="navbar-header">
-	      <a class="navbar-brand" ng-href="/"><img src="assets/images/siamang_logo_small.png"></a>
+	      <a class="navbar-brand" ng-href="/"><img src="assets/images/siamang_logo.png"></a>
 	    </div>
 	  	<form class="navbar-form navbar-left" role="search">
 	    	<div class="form-group">
@@ -37,7 +37,7 @@
 	</span>
 </div>
 
-<div class ="results" ng-show="!torrent.processing">
+<div class ="results" ng-show="torrent.torrents.data != 0 && torrent.processing == false">
 	<div class="page-header">
 		<h3>Results for "{{torrent.query}}"</h3>
 	</div>
@@ -69,4 +69,11 @@
 			</tr>
 		</tbody>
 	</table>
+</div>
+
+<div ng-show="torrent.torrents.data == 0">
+<br>
+<h1 align="center">We've got nothing on "{{torrent.query}}"<h1>
+<h1 align="center">have a banana instead, or use another keyword</h1>
+<img class="pisang" src="assets/images/siamang_not_found.png">
 </div>
