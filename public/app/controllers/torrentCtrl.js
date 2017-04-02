@@ -24,14 +24,27 @@ angular.module('torrentCtrl', ['torrentService'])
 		});
 })
 
-.controller('torrentSearchController', function($routeParams, Torrent) {
+.controller('torrentSearchController', function($routeParams, Torrent, $scope) {
 	var vm = this;
+
 	vm.processing = true;
 	vm.query = $routeParams.name;
-	vm.listFilter = "";
+	vm.navActive = ["active", "inactive", "inactive", "inactive", "inactive", "inactive"];
+	vm.listFilterArray = ["", "video", "audio", "doc", "exe", "other"];
+	vm.listFilter = vm.listFilterArray[0];
+
+
 	Torrent.search($routeParams.name)
 		.then(function(data) {
 			vm.processing = false;
 			vm.torrents = data;
 		})
+
+	$scope.clickActive = function(category) {
+		for(var i=0; i<6; i++){
+			vm.navActive[i] = "inactive"
+		}
+		vm.navActive[category] = "active";
+		vm.listFilter = vm.listFilterArray[category];
+	}
 });
