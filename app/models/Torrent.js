@@ -1,19 +1,24 @@
 var mongoose = require('mongoose');
-var Schema       = mongoose.Schema;
 
-var TorrentSchema = new Schema({
+var RecordSchema = mongoose.Schema({
   _id: { type: String, index: true },
-  title: { type: String, index: true },
-  category: { type: String, default: "Unknown", index: true },
-  details: { type: [String], default: [] },
+  name: { type: String, index: true },
+  search: { type: String, index: true },
+  magnet: { type: String },
+  categories: { type: String, default: "Unknown", index: true },
   size: { type: Number, default: 0 },
-  files: { type: [String], default: [] },
   swarm: {
     seeders: { type: Number, default: 0, index: true },
-    leechers: { type: Number, default: 0 }
+    leechers: { type: Number, default: 0, index: true }
+  },
+  files: {
+    path: { type: [String], default: [], index: true },
+    length: { type: [Number], default: 0 }
   },
   imported: {type: Date, default: Date.now, index: true},
-  lastmod: {type: Date, default: Date.now, index: true}
+  updated: {type: Date, default: Date.now, index: true}
 });
 
-module.exports = mongoose.model('Torrent',TorrentSchema);
+var Records = mongoose.model('Records',RecordSchema);
+
+module.exports = Records;

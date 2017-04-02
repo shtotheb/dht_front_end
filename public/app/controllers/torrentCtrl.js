@@ -27,7 +27,8 @@ angular.module('torrentCtrl', ['torrentService'])
 .controller('torrentSearchController', function($routeParams, Torrent) {
 	var vm = this;
 	vm.processing = true;
-	vm.query = $routeParams.name
+	vm.query = $routeParams.name;
+	vm.listFilter = "";
 	Torrent.search($routeParams.name)
 		.then(function(data) {
 			vm.processing = false;

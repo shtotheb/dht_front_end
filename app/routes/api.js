@@ -34,9 +34,10 @@ module.exports = function(app, express) {
 	apiRouter.route('/torrentsearch/:name')
 
 	.get(function(req, res) {
-		Torrent.find({
-			$text : { $search : req.params.name }
-		})
+		Torrent.find(
+			{ $text : { $search : req.params.name }},
+			{ score: { $meta: "textScore" } })
+		.sort( { score: { $meta: "textScore" } } )
 		.exec(function(err, torrent) {
 			if (err) res.send(err);
 			res.json(torrent);
