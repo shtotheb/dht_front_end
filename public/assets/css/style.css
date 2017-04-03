@@ -1,7 +1,12 @@
 main 					{
-	padding-top:30px;
+	padding-top:40px;
 
 }
+
+table {
+    table-layout: fixed;
+}
+
 
 /* HEADER
 ===================== */

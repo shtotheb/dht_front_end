@@ -41,7 +41,6 @@
 	<div class="page-header">
 		<h3>Results for "{{torrent.query}}"</h3>
 	</div>
-
 	<ul class="nav nav-pills">
 		<li class={{torrent.navActive[0]}}><a ng-click = "clickActive(0)" data-toggle="tab">All</a></li>
 		<li class={{torrent.navActive[1]}}><a ng-click = "clickActive(1)" data-toggle="tab">Video</a></li>
@@ -52,22 +51,19 @@
 	</ul>
 
 	<table class="table table-striped table-hover">
-		<thead>
-			<tr>
-				<th>Title</th>
-				<th>Size</th>
-				<th>Seeders/Leechers</th>
-				<th>Added</th>
-				<th></th>
-			</tr>
-		</thead>
+		<br>
 		<tbody>
 			<tr ng-repeat="warez in torrent.torrents.data | filter: {categories: torrent.listFilter}">
-				<td>{{ warez.name }}</td>
-				<td>{{ warez.size | Filesize }}</td>
-				<td>{{ warez.swarm.seeders }} / {{ warez.swarm.seeders }}</td>
-				<td>{{ warez.imported | date:'short'}}</td>
-				<td><a href="/torrent/{{warez._id}}" class="btn btn-xs btn-primary">Download</a></td>
+				<td class="col-sm-11">
+						{{ warez.name }}<br>
+						<span class="label label-default">{{ warez.imported | date:'shortDate'}}</span>
+						<span class="label label-default">{{ warez.size | Filesize }}</span>
+						<span ng-if="warez.swarm.seeders != 0" class="label label-info">seeders: {{ warez.swarm.seeders }} leechers: {{ warez.swarm.leechers }}</span>
+						<span ng-if="warez.swarm.seeders == 0" class="label label-danger">seeders: {{ warez.swarm.seeders }} leechers: {{ warez.swarm.leechers }}</span>
+				</td>
+				<td class="col-sm-1">
+					<a href="/torrent/{{warez._id}}" class="btn btn-sm btn-success">Download</a>
+				</td>
 			</tr>
 		</tbody>
 	</table>

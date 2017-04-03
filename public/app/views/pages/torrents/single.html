@@ -43,7 +43,6 @@
 			Metadata
 		</h1>
 	</div>
-
 	<div class="panel panel-default">
 	  <div class="panel-heading">
 			{{torrent.torrentData.data.name}}
@@ -67,7 +66,6 @@
 			</div>
 		</div>
 	</div>
-
-	<a href="magnet:?xt=urn:btih:{{torrent.torrentData.data._id}}&dn={{torrent.torrentData.data.title}}" class="btn btn-primary" alt="download torrent" title="download torrent">
+	<a href="{{torrent.torrentData.data.magnet}}&dn={{torrent.torrentData.data.name}}" class="btn btn-success" alt="download torrent" title="download torrent">
 			Download
 	</a>
