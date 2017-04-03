@@ -42,12 +42,12 @@
 		<h3>Results for "{{torrent.query}}"</h3>
 	</div>
 	<ul class="nav nav-pills">
-		<li class={{torrent.navActive[0]}}><a ng-click = "clickActive(0)" data-toggle="tab">All</a></li>
-		<li class={{torrent.navActive[1]}}><a ng-click = "clickActive(1)" data-toggle="tab">Video</a></li>
-		<li class={{torrent.navActive[2]}}><a ng-click = "clickActive(2)" data-toggle="tab">Audio</a></li>
-		<li class={{torrent.navActive[3]}}><a ng-click = "clickActive(3)" data-toggle="tab">Document</a></li>
-		<li class={{torrent.navActive[4]}}><a ng-click = "clickActive(4)" data-toggle="tab">Executable</a></li>
-		<li class={{torrent.navActive[5]}}><a ng-click = "clickActive(5)" data-toggle="tab">Other</a></li>
+		<li class={{torrent.navActive[0]}}><a ng-click = "clickActive(0)" data-toggle="tab">All <span class="badge">{{torrent.torrents.data.length}}</span></a></li>
+		<li class={{torrent.navActive[1]}}><a ng-click = "clickActive(1)" data-toggle="tab">Video <span class="badge">{{(torrent.torrents.data | filter: {categories: 'video'}).length}}</span></a></li>
+		<li class={{torrent.navActive[2]}}><a ng-click = "clickActive(2)" data-toggle="tab">Audio <span class="badge">{{(torrent.torrents.data | filter: {categories: 'audio'}).length}}</span></a></li>
+		<li class={{torrent.navActive[3]}}><a ng-click = "clickActive(3)" data-toggle="tab">Document <span class="badge">{{(torrent.torrents.data | filter: {categories: 'doc'}).length}}</span></a></li>
+		<li class={{torrent.navActive[4]}}><a ng-click = "clickActive(4)" data-toggle="tab">Executable <span class="badge">{{(torrent.torrents.data | filter: {categories: 'exe'}).length}}</span></a></li>
+		<li class={{torrent.navActive[5]}}><a ng-click = "clickActive(5)" data-toggle="tab">Other <span class="badge">{{(torrent.torrents.data | filter: {categories: 'other'}).length}}</span></a></li>
 	</ul>
 
 	<table class="table table-striped table-hover">
