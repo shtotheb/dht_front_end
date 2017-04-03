@@ -58,7 +58,8 @@
 						{{ warez.name }}<br>
 						<span class="label label-default">{{ warez.imported | date:'shortDate'}}</span>
 						<span class="label label-default">{{ warez.size | Filesize }}</span>
-						<span ng-if="warez.swarm.seeders != 0" class="label label-info">seeders: {{ warez.swarm.seeders }} leechers: {{ warez.swarm.leechers }}</span>
+						<span ng-if="warez.swarm.seeders > 19" class="label label-info">seeders: {{ warez.swarm.seeders }} leechers: {{ warez.swarm.leechers }}</span>
+						<span ng-if="warez.swarm.seeders < 20 && warez.swarm.seeders != 0" class="label label-warning">seeders: {{ warez.swarm.seeders }} leechers: {{ warez.swarm.leechers }}</span>
 						<span ng-if="warez.swarm.seeders == 0" class="label label-danger">seeders: {{ warez.swarm.seeders }} leechers: {{ warez.swarm.leechers }}</span>
 				</td>
 				<td class="col-sm-1">
