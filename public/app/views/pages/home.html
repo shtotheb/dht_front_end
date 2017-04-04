@@ -33,22 +33,15 @@
 <body ng-app="torrentApp" ng-controller="searchCtrl as search">
 
   <main class="container">
-    <div class="row">
-      <div class="span4"><img class="center-block" src="assets/images/siamang_search_logo3.png"></div>
+
+    <img class="center-block" src="assets/images/siamang_search_logo3.png">
+    <div class="input-group col-xs-6">
+      <input type="form" class="form-control" ng-model="search.torrentname" onkeydown = "if (event.keyCode == 13) document.getElementById('btnSearch').click()">
+      <span class="input-group-btn">
+        <a id="btnSearch" href='/torrentsearch/{{search.torrentname}}' class="btn btn-default" type="button">Search</a>
+      </span>
     </div>
 
-    <div class="col-xs-6">
-      <div class="form-group">
-        <div class="input-group">
-          <input type="text" class="form-control" ng-model="search.torrentname">
-          <span class="input-group-btn">
-            <a href='/torrentsearch/{{search.torrentname}}' class="btn btn-default" type="button">Search</a>
-          </span>
-        </div>
-      </div>
-    </div>
   </main>
-
-
 </body>
 </html>

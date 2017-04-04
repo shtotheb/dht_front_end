@@ -6,8 +6,8 @@
 	    </div>
 	  	<form class="navbar-form navbar-left" role="search">
 	    	<div class="form-group">
-	    		<input type="text" class="form-control" placeholder="Search" ng-model="search.torrentname">
-					<a href='/torrentsearch/{{search.torrentname}}' type="button" class="btn btn-default">Go</a>
+	    		<input type="text" class="form-control" placeholder="Search" ng-model="search.torrentname" onkeydown = "if (event.keyCode == 13) document.getElementById('btnSearch').click()">
+					<a id="btnSearch" href='/torrentsearch/{{search.torrentname}}' type="button" class="btn btn-default">Go</a>
 	    	</div>
 			</form>
 		</div>

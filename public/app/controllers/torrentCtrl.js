@@ -2,6 +2,7 @@ angular.module('torrentCtrl', ['torrentService'])
 
 .controller('searchCtrl', function($scope) {
 		$scope.torrentname = "";
+
 })
 
 .controller('torrentController', function(Torrent) {
