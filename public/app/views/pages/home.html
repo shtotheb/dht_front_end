@@ -36,7 +36,7 @@
 
     <img class="center-block" src="assets/images/siamang_search_logo3.png">
     <div class="input-group col-xs-6">
-      <input type="form" class="form-control" ng-model="search.torrentname" onkeydown = "if (event.keyCode == 13) document.getElementById('btnSearch').click()">
+      <input type="text" class="form-control" ng-model="search.torrentname" onkeydown = "if (event.keyCode == 13) document.getElementById('btnSearch').click()">
       <span class="input-group-btn">
         <a id="btnSearch" href='/torrentsearch/{{search.torrentname}}' class="btn btn-default" type="button">Search</a>
       </span>
