@@ -32,12 +32,13 @@ angular.module('torrentCtrl', ['torrentService'])
 	vm.navActive = ["active", "inactive", "inactive", "inactive", "inactive", "inactive"];
 	vm.listFilterArray = ["", "video", "audio", "doc", "exe", "other"];
 	vm.listFilter = vm.listFilterArray[0];
-	vm.listOrder = ["swarm.seeders", "swarm.leechers", "size", "imported", "name"];
+	vm.listOrder = ["swarm.seeders", "swarm.leechers", "size", "imported", "name", "score", "Seeders", "Leechers", "Size", "Date", "Name", "Relevance"];
 	vm.orderReverse = false;
-	vm.orderChoice = ""
+	vm.orderChoice = ["score", "Relevance"];
 
 	$scope.clickOrder = function(category, reverse) {
-		vm.orderChoice = vm.listOrder[category];
+		vm.orderChoice[0] = vm.listOrder[category];
+		vm.orderChoice[1] = vm.listOrder[category + 6];
 		vm.orderReverse = vm.reverse;
 	}
 
