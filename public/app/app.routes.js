@@ -26,10 +26,6 @@ angular.module('app.routes', ['ngRoute'])
 			controllerAs: 'torrent'
 		})
 
-		.otherwise({
-			templateUrl: 'app/views/pages/404.html'
-		});
-
 	$locationProvider.html5Mode(true);
 
 	$compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|chrome-extension|magnet):/);
