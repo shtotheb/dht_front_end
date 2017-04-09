@@ -26,6 +26,14 @@ angular.module('app.routes', ['ngRoute'])
 			controllerAs: 'torrent'
 		})
 
+		.when('/404', {
+			templateUrl: 'app/views/pages/404.html'
+		})
+
+		.otherwise({
+			redirectTo: '/404'
+		});
+
 	$locationProvider.html5Mode(true);
 
 	$compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|chrome-extension|magnet):/);
