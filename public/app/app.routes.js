@@ -24,6 +24,10 @@ angular.module('app.routes', ['ngRoute'])
 			templateUrl: 'app/views/pages/torrents/all.html',
 			controller: 'torrentSearchController',
 			controllerAs: 'torrent'
+		})
+
+		.otherwise({
+			templateUrl: 'app/views/pages/404.html'
 		});
 
 	$locationProvider.html5Mode(true);

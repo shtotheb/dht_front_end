@@ -32,8 +32,8 @@ angular.module('torrentCtrl', ['torrentService'])
 	var vm = this;
 
 	vm.processing = true;
-	vm.searchParam = decodeURIComponent($routeParams.name);
-	vm.query = vm.searchParam
+	vm.searchParam = $routeParams.name;
+	vm.query = decodeURIComponent($routeParams.name);
 	vm.navActive = ["active", "inactive", "inactive", "inactive", "inactive", "inactive"];
 	vm.listFilterArray = ["", "video", "audio", "doc", "exe", "other"];
 	vm.listFilter = vm.listFilterArray[0];
@@ -59,5 +59,9 @@ angular.module('torrentCtrl', ['torrentService'])
 		}
 		vm.navActive[category] = "active";
 		vm.listFilter = vm.listFilterArray[category];
+	}
+
+	vm.goDownload = function(infohash){
+		return $location.path('torrent/' + infohash)
 	}
 });

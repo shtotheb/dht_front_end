@@ -80,7 +80,7 @@
 					<span ng-if="warez.swarm.seeders == 0" class="label label-danger">seeders: {{ warez.swarm.seeders }} leechers: {{ warez.swarm.leechers }}</span>
 				</td>
 				<td class="col-sm-1">
-					<a href="/torrent/{{warez._id}}" class="btn btn-sm btn-success">Download</a>
+					<a ng-click = "torrent.goDownload(warez._id)" class="btn btn-sm btn-success">Download</a>
 				</td>
 			</tr>
 		</tbody>
