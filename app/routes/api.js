@@ -37,6 +37,7 @@ module.exports = function(app, express) {
 		Torrent.find(
 			{ $text : { $search : req.params.name }},
 			{ score: { $meta: "textScore" } })
+		.select({ name : 1, categories : 1, size : 1, swarm : 1, imported : 1 })
 		.sort( { score: { $meta: "textScore" } } )
 		.exec(function(err, torrent) {
 			if (err) res.send(err);
