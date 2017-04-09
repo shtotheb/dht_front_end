@@ -1,6 +1,6 @@
 {
-  "name": "linkedin-ngapi",
-  "main": "api.js",
+  "name": "siamang",
+  "main": "server.js",
   "dependencies": {
     "angular-filesize-filter": "^0.1.1",
     "angular-filter": "^0.5.15",
