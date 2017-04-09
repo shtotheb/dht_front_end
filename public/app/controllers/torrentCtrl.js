@@ -2,8 +2,8 @@ angular.module('torrentCtrl', ['torrentService'])
 
 .controller('indexCtrl', function($scope, $location) {
 		var vm = this;
-		vm.location = function(newLocation){
-			return $location.url(newLocation);
+		vm.goSearch = function(name){
+			return $location.path('torrentsearch/' + encodeURIComponent(name))
 		}
 		vm.torrentname = $scope.torrentname;
 })
@@ -28,11 +28,12 @@ angular.module('torrentCtrl', ['torrentService'])
 		});
 })
 
-.controller('torrentSearchController', function($routeParams, Torrent, $scope) {
+.controller('torrentSearchController', function($routeParams, Torrent, $scope, $location) {
 	var vm = this;
 
 	vm.processing = true;
-	vm.query = $routeParams.name;
+	vm.searchParam = decodeURIComponent($routeParams.name);
+	vm.query = vm.searchParam
 	vm.navActive = ["active", "inactive", "inactive", "inactive", "inactive", "inactive"];
 	vm.listFilterArray = ["", "video", "audio", "doc", "exe", "other"];
 	vm.listFilter = vm.listFilterArray[0];
@@ -46,7 +47,7 @@ angular.module('torrentCtrl', ['torrentService'])
 		vm.orderReverse = vm.reverse;
 	}
 
-	Torrent.search($routeParams.name)
+	Torrent.search(vm.searchParam)
 		.then(function(data) {
 			vm.processing = false;
 			vm.torrents = data;

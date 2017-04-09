@@ -2,6 +2,8 @@
 <div ng-controller="indexCtrl as index" class="input-group col-xs-6">
 	<input type="text" class="form-control" ng-model="index.torrentname" onkeydown = "if (event.keyCode == 13) document.getElementById('btnSearch').click()">
 	<span class="input-group-btn">
-		<a id="btnSearch" href='/torrentsearch/{{index.torrentname}}' type="button" class="btn btn-default">Search</a>
+		<a id="btnSearch" ng-click="index.goSearch(index.torrentname)" type="button" class="btn btn-default">Search</a>
 	</span>
 </div>
+
+<!-- href='/torrentsearch/{{index.torrentname}}' -->

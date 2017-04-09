@@ -7,7 +7,7 @@
 			<form class="navbar-form navbar-left" role="search">
 				<div class="form-group">
 					<input type="text" class="form-control" placeholder="Search" ng-model="index.torrentname" ng-model-options="{ getterSetter: true }" onkeydown = "if (event.keyCode == 13) document.getElementById('btnSearch').click()">
-					<a id="btnSearch" href='/torrentsearch/{{index.torrentname}}' type="button" class="btn btn-default">Go</a>
+					<a id="btnSearch" ng-click="index.goSearch(index.torrentname)" type="button" class="btn btn-default">Go</a>
 				</div>
 			</form>
 		</div>
