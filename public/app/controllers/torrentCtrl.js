@@ -1,7 +1,11 @@
 angular.module('torrentCtrl', ['torrentService'])
 
-.controller('searchCtrl', function($scope) {
-		$scope.torrentname = "";
+.controller('indexCtrl', function($scope, $location) {
+		var vm = this;
+		vm.location = function(newLocation){
+			return $location.url(newLocation);
+		}
+		vm.torrentname = $scope.torrentname;
 })
 
 .controller('torrentController', function(Torrent) {

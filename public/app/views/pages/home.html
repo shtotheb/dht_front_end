@@ -1,47 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Siamang Torrent</title>
-
-	<!-- FOR ANGULAR ROUTING -->
-	<base href="/">
-
-	<!-- CSS  -->
-	<!-- load bootstrap from CDN and custom CSS -->
-	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.1/flatly/bootstrap.min.css">
-	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css">
-	<link rel="stylesheet" href="assets/css/style.css">
-
-	<!-- JS -->
-	<!-- load angular and angular-route via CDN -->
-	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.8/angular.min.js"></script>
-	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.8/angular-route.js"></script>
-	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.8/angular-animate.js"></script>
-
-	<!-- controllers -->
-	<script src="app/controllers/torrentCtrl.js"></script>
-
-	<!-- services -->
-	<script src="app/services/torrentService.js"></script>
-
-	<!-- main Angular app files -->
-	<script src="app/app.routes.js"></script>
-	<script src="app/app.js"></script>
-</head>
-
-<body ng-app="torrentApp" ng-controller="searchCtrl as search">
-
-  <main class="container">
-
-    <img class="center-block" src="assets/images/siamang_search_logo3.png">
-    <div class="input-group col-xs-6">
-      <input type="text" class="form-control" ng-model="search.torrentname" onkeydown = "if (event.keyCode == 13) document.getElementById('btnSearch').click()">
-      <span class="input-group-btn">
-        <a id="btnSearch" href='/torrentsearch/{{search.torrentname}}' class="btn btn-default" type="button">Search</a>
-      </span>
-    </div>
-
-  </main>
-</body>
-</html>
+<img class="center-block" src="assets/images/siamang_search_logo3.png">
+<div ng-controller="indexCtrl as index" class="input-group col-xs-6">
+	<input type="text" class="form-control" ng-model="index.torrentname" onkeydown = "if (event.keyCode == 13) document.getElementById('btnSearch').click()">
+	<span class="input-group-btn">
+		<a id="btnSearch" href='/torrentsearch/{{index.torrentname}}' type="button" class="btn btn-default">Search</a>
+	</span>
+</div>

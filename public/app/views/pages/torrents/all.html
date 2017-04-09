@@ -1,14 +1,14 @@
-<header ng-controller="searchCtrl as search">
+<header ng-controller="indexCtrl as index">
 	<nav class="navbar navbar-default navbar-fixed-top">
 		<div class="container-fluid">
-	    <div class="navbar-header">
-	      <a class="navbar-brand" ng-href="/"><img src="assets/images/siamang_logo.png"></a>
-	    </div>
-	  	<form class="navbar-form navbar-left" role="search">
-	    	<div class="form-group">
-	    		<input type="text" class="form-control" placeholder="Search" ng-model="search.torrentname" onkeydown = "if (event.keyCode == 13) document.getElementById('btnSearch').click()">
-					<a id="btnSearch" href='/torrentsearch/{{search.torrentname}}' type="button" class="btn btn-default">Go</a>
-	    	</div>
+			<div class="navbar-header">
+				<a class="navbar-brand" ng-href="/"><img src="assets/images/siamang_logo.png"></a>
+			</div>
+			<form class="navbar-form navbar-left" role="search">
+				<div class="form-group">
+					<input type="text" class="form-control" placeholder="Search" ng-model="index.torrentname" ng-model-options="{ getterSetter: true }" onkeydown = "if (event.keyCode == 13) document.getElementById('btnSearch').click()">
+					<a id="btnSearch" href='/torrentsearch/{{index.torrentname}}' type="button" class="btn btn-default">Go</a>
+				</div>
 			</form>
 		</div>
 	</nav>
@@ -16,30 +16,30 @@
 
 <div class="loading" ng-show="torrent.processing">
 	<span aria-busy="true" aria-label="Loading" role="progressbar" class="craddle">
-	  <div class="swing">
-	    <div class="swing-l"></div>
-	    <div></div>
-	    <div></div>
-	    <div></div>
-	    <div></div>
-	    <div></div>
-	    <div class="swing-r"></div>
-	  </div>
-	  <div class="shadow">
-	    <div class="shadow-l"></div>
-	    <div></div>
-	    <div></div>
-	    <div></div>
-	    <div></div>
-	    <div></div>
-	    <div class="shadow-r"></div>
-	  </div>
+		<div class="swing">
+			<div class="swing-l"></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div class="swing-r"></div>
+		</div>
+		<div class="shadow">
+			<div class="shadow-l"></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div class="shadow-r"></div>
+		</div>
 	</span>
 </div>
 
 <div class ="results" ng-show="torrent.torrents.data != 0 && torrent.processing == false">
 	<div class="page-header">
-		<h3>Results for "{{torrent.query}}"</h3>
+		<h3>Results for "{{torrent.query}}" {{torrent.location}}</h3>
 	</div>
 
 	<ul class="nav nav-pills">

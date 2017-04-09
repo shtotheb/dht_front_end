@@ -1,14 +1,14 @@
-<header ng-controller="searchCtrl as search">
+<header ng-controller="indexCtrl as index">
 	<nav class="navbar navbar-default navbar-fixed-top">
 		<div class="container-fluid">
-	    <div class="navbar-header">
-	      <a class="navbar-brand" ng-href="/"><img src="assets/images/siamang_logo.png"></a>
-	    </div>
-	  	<form class="navbar-form navbar-left" role="search">
-	    	<div class="form-group">
-	    		<input type="text" class="form-control" placeholder="Search" ng-model="search.torrentname" onkeydown = "if (event.keyCode == 13) document.getElementById('btnSearch').click()">
-					<a id="btnSearch" href='/torrentsearch/{{search.torrentname}}' type="button" class="btn btn-default">Go</a>
-	    	</div>
+			<div class="navbar-header">
+				<a class="navbar-brand" ng-href="/"><img src="assets/images/siamang_logo.png"></a>
+			</div>
+			<form class="navbar-form navbar-left" role="search">
+				<div class="form-group">
+					<input type="text" class="form-control" placeholder="Search" ng-model="index.torrentname" ng-model-options="{ getterSetter: true }" onkeydown = "if (event.keyCode == 13) document.getElementById('btnSearch').click()">
+					<a id="btnSearch" href='/torrentsearch/{{index.torrentname}}' type="button" class="btn btn-default">Go</a>
+				</div>
 			</form>
 		</div>
 	</nav>
@@ -16,24 +16,24 @@
 
 <div class="loading" ng-show="torrent.processing">
 	<span aria-busy="true" aria-label="Loading" role="progressbar" class="craddle">
-	  <div class="swing">
-	    <div class="swing-l"></div>
-	    <div></div>
-	    <div></div>
-	    <div></div>
-	    <div></div>
-	    <div></div>
-	    <div class="swing-r"></div>
-	  </div>
-	  <div class="shadow">
-	    <div class="shadow-l"></div>
-	    <div></div>
-	    <div></div>
-	    <div></div>
-	    <div></div>
-	    <div></div>
-	    <div class="shadow-r"></div>
-	  </div>
+		<div class="swing">
+			<div class="swing-l"></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div class="swing-r"></div>
+		</div>
+		<div class="shadow">
+			<div class="shadow-l"></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div class="shadow-r"></div>
+		</div>
 	</span>
 </div>
 
@@ -51,18 +51,24 @@
 			<div class="row">
 				<div class="col-sm-1">
 					<strong>InfoHash </strong><br>
+					<strong>Seeders </strong><br>
+					<strong>Leechers </strong><br>
 					<strong>Size	</strong><br>
-					<strong>Files </strong>
+					<strong>Imported </strong><br>
 				</div>
 				<div class="col-sm-11">
 				 	{{torrent.torrentData.data._id }}<br>
+					{{torrent.torrentData.data.swarm.seeders}}<br>
+					{{torrent.torrentData.data.swarm.leechers}}<br>
 					{{torrent.torrentData.data.size | Filesize }}<br>
-					<div class="form-group">
-					  <select multiple class="form-control">
-					    <option ng-repeat="warez in torrent.torrentData.data.files.path">{{warez}}</option>
-					  </select>
-					</div>
+					{{torrent.torrentData.data.imported | date:'medium' }}<br>
 				</div>
+			</div>
+			<br>
+			<div class="form-group">
+				<select multiple class="form-control">
+					<option ng-repeat="warez in torrent.torrentData.data.files.path">{{warez}}</option>
+				</select>
 			</div>
 		</div>
 	</div>
