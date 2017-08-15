@@ -2,21 +2,31 @@ angular.module('torrentCtrl', ['torrentService'])
 
 .controller('indexCtrl', function($scope, $location) {
 		var vm = this;
+
+		vm.count = 123
+
+		vm.countDHT = function(){
+			Torrent.all()
+			.then(function(data) {
+					return data;
+			});
+		}
+
 		vm.goSearch = function(name){
 			return $location.path('torrentsearch/' + encodeURIComponent(name))
 		}
 		vm.torrentname = $scope.torrentname;
 })
 
-.controller('torrentController', function(Torrent) {
-	var vm = this;
-	vm.processing = true;
-	Torrent.all()
-		.then(function(data) {
-			vm.processing = false;
-			vm.torrents = data;
-		});
-})
+// .controller('torrentController', function(Torrent) {
+// 	var vm = this;
+// 	vm.processing = true;
+// 	Torrent.all()
+// 		.then(function(data) {
+// 			vm.processing = false;
+// 			vm.torrents = data;
+// 		});
+// })
 
 .controller('torrentShowController', function($routeParams, Torrent) {
 	var vm = this;

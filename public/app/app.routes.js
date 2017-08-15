@@ -8,12 +8,6 @@ angular.module('app.routes', ['ngRoute'])
 			templateUrl: 'app/views/pages/home.html'
 		})
 
-		.when('/torrents', {
-			templateUrl: 'app/views/pages/torrents/all.html',
-			controller: 'torrentController',
-			controllerAs: 'torrent'
-		})
-
 		.when('/torrent/:torrent_id', {
 			templateUrl: 'app/views/pages/torrents/single.html',
 			controller: 'torrentShowController',

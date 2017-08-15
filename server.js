@@ -22,7 +22,6 @@ mongoose.connect(config.database);
 
 app.use(express.static(__dirname + '/public'));
 
-
 var apiRoutes = require('./app/routes/api')(app, express);
 app.use('/api', apiRoutes);
 

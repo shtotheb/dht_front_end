@@ -12,15 +12,14 @@ module.exports = function(app, express) {
 		res.json({ message: 'hooray! welcome to our api!' });
 	});
 
-
 	apiRouter.route('/torrents')
 
 		.get(function(req, res) {
-			Torrent.find({}, function(err, torrents) {
+			Torrent.count({}, function(err, count){
 				if (err) res.send(err);
-				res.json(torrents);
-			}).limit(500);
-		});
+		    res.json(data);
+			});
+		})
 
 	apiRouter.route('/torrent/:torrent_id')
 
@@ -44,8 +43,6 @@ module.exports = function(app, express) {
 			res.json(torrent);
 		});
 	})
-
-
 
 	return apiRouter;
 };
