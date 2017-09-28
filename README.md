@@ -1,5 +1,5 @@
 ##What is it:
-This is the front-end part of Siamang Search a BitTorrent DHT search engine
+This is the front-end part of Siamang Search a BitTorrent DHT search engine, the BitTorrent crawler code can be found here: https://github.com/shtotheb/spooderpeeps
 
 ##dependencies:
 `npm install`
